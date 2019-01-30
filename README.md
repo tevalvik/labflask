@@ -1,2 +1,3 @@
 # labflask
-workspace to get familiar with flask
+
+Flask tutorial flaskr blog app

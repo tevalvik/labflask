@@ -28,16 +28,16 @@ def create_app(test_config=None):
 
     @app.route('/hello/<var>')
     def hello(var):
-        return "Hello there {}!".format(var)
-
-    @app.route('/hell')
-    def hell():
-        return "Welcome to Hell!"
+        return "Hello there {}! The time is: {}".format(var, "probably late?")
 
     from . import db
     db.init_app(app)
 
     from . import auth
     app.register_blueprint(auth.bp)
+
+    from . import blog
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
 
     return app
